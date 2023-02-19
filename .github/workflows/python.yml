@@ -25,10 +25,6 @@ jobs:
           pyinstaller --onefile --name main-mac main.py
           pyinstaller --onefile --name main-linux main.py
           pyinstaller --onefile --name main-win main.py
-          mkdir dist
-          mv dist/main-mac dist/main-mac
-          mv dist/main-linux dist/main-linux
-          mv dist/main-win.exe dist/main-win.exe
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
