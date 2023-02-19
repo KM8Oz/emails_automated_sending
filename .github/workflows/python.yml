@@ -34,16 +34,16 @@ jobs:
           prerelease: false
       - name: Build executables
         run: |
-          pyinstaller --onefile --name emails-automated main.py
+          pyinstaller --nowindow --noconfirm --log-level=DEBUG --onefile --name emails_automated main.py
       - name: List files and directories
         run: |
-          ls
+          ls dist
       - name: Upload artifacts
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: dist/emails-automated.exe
-          asset_name: emails-automated.exe
+          asset_path: dist/emails_automated.exe
+          asset_name: emails_automated.exe
           asset_content_type: application/octet-stream
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN2 }}
