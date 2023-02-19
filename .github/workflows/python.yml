@@ -23,6 +23,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       - name: Create Release
+        id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN2 }}
@@ -33,17 +34,12 @@ jobs:
           prerelease: false
       - name: Build executables
         run: |
-          pyinstaller --onefile --name main-mac main.py
-          pyinstaller --onefile --name main-linux main.py
-          pyinstaller --onefile --name main-win main.py
-      - name: Zip executables
-        run: |
-          zip -r artifacts ./dist/main*
+          pyinstaller --onefile --name emails-automated main.py
       - name: Upload artifacts
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./artifacts.zip
+          asset_path: ./dist/emails-automated.exe
           asset_content_type: application/octet-stream
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN2 }}
