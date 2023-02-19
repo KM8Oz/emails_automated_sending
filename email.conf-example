@@ -1,6 +1,6 @@
 [EMAIL]
-SENDER_EMAIL = netlabagadir@gmail.com
-SENDER_PASSWORD = utymjtgdzvjtptoa
+SENDER_EMAIL = your_email@gmail.com
+SENDER_PASSWORD = gmail_app_passwords
 EMAIL_SUBJECT = Send an email
 EMAIL_MESSAGE = This is a test email sent from Python.
 EMAIL_SERVER = smtp.gmail.com
