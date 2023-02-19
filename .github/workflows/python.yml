@@ -1,6 +1,9 @@
 name: Build Executables
 
-on: push
+on:
+  push:
+    tags:
+    - '*'
 
 jobs:
   build:
